@@ -1,6 +1,6 @@
-package main.repository
+package main_1.repository
 
-import main.model.Movie
+import main_1.model.Movie
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 

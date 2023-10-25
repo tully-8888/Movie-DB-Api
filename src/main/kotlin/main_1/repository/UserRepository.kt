@@ -1,6 +1,6 @@
-package main.repository
+package main_1.repository
 
-import main.model.User
+import main_1.model.User
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
