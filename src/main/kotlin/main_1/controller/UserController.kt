@@ -8,32 +8,16 @@ import org.springframework.web.bind.annotation.*
 import java.util.Optional
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/users")
 class UserController(@Autowired private val userService: UserService) {
 
-
-    @PostMapping("/")
-    fun createUser(@RequestBody user: User): User {
-        return userService.createUser(user)
-    }
-
+    // Endpoint to expose all users
     @GetMapping("/")
-    fun getAllUsers(): List<User> {
-        return userService.getAllUsers()
-    }
+    fun getAllUsers(): List<User> = userService.getAllUsers()
 
-    @GetMapping("/{id}")
-    fun getUserById(@PathVariable id: Long): User? {
-        return userService.getUserById(id)
-    }
-
-    @PutMapping("/{id}")
-    fun updateUser(@PathVariable id: Long, @RequestBody updatedUser: User): User {
-        return userService.updateUser(id, updatedUser)
-    }
-
-    @DeleteMapping("/{id}")
-    fun deleteUser(@PathVariable id: Long) {
-        userService.deleteUser(id)
+    // Endpoint to expose one single user’s details (with movies)
+    @GetMapping("/{userId}")
+    fun getUserDetails(@PathVariable userId: Long): User? {
+        return userService.getUserById(userId)
     }
 }

@@ -16,7 +16,7 @@ class UserService @Autowired constructor(private val userRepository: UserReposit
         return userRepository.findAll()
     }
 
-    fun getUserById(id: Long): User? {
+    fun getUserById(id: Long): User {
         return userRepository.findById(id).orElse(null)
     }
 

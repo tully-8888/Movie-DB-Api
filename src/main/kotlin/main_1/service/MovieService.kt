@@ -6,10 +6,7 @@ import org.springframework.stereotype.Service
 import main_1.repository.MovieRepository
 
 @Service
-class MovieService {
-
-    @Autowired
-    private lateinit var movieRepository: MovieRepository
+class MovieService @Autowired constructor (private var movieRepository: MovieRepository){
 
     fun createMovie(movie: Movie): Movie {
         return movieRepository.save(movie)

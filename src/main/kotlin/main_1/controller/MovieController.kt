@@ -7,42 +7,20 @@ import main_1.service.MovieService
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/api")
-class MovieController() {
+@RequestMapping("/api/movies")
+class MovieController(@Autowired private val movieService: MovieService) {
 
-    @Autowired
-    private lateinit var movieService: MovieService
-
-    @PostMapping("/")
-    fun createMovie(@RequestBody movie: Movie): Movie {
-        return movieService.createMovie(movie)
-    }
-
+    // Endpoint to expose all movies
     @GetMapping("/")
-    fun getAllMovies(): List<Movie> {
-        return movieService.getAllMovies()
+    fun getAllMovies(): List<Movie> = movieService.getAllMovies()
+
+    // Endpoint to expose all movies in a category
+    @GetMapping("/category/{category}")
+    fun getMoviesByCategory(@PathVariable category: String): List<Movie> {
+        return movieService.getMoviesByGenre(category)
     }
 
-    @GetMapping("/{id}")
-    fun getMovieById(@PathVariable id: Long): Movie? {
-        return movieService.getMovieById(id)
-    }
-
-    @PutMapping("/{id}")
-    fun updateMovie(@PathVariable id: Long, @RequestBody updatedMovie: Movie): Movie {
-        return movieService.updateMovie(id, updatedMovie)
-    }
-
-    @DeleteMapping("/{id}")
-    fun deleteMovie(@PathVariable id: Long) {
-        movieService.deleteMovie(id)
-    }
-
-    @GetMapping("/genre/{genre}")
-    fun getMoviesByGenre(@PathVariable genre: String): List<Movie> {
-        return movieService.getMoviesByGenre(genre)
-    }
-
+    // Endpoint to expose all movies with a specific tag
     @GetMapping("/tag/{tag}")
     fun getMoviesByTag(@PathVariable tag: String): List<Movie> {
         return movieService.getMoviesByTag(tag)

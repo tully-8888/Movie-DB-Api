@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean
 
 @SpringBootApplication
 @EntityScan(basePackages = ["main_1.model"])
-open class MyApplication {
+open class MyApplication
 
     fun main(args: Array<String>) {
         val context: ApplicationContext = runApplication<MyApplication>(*args)
@@ -22,10 +22,5 @@ open class MyApplication {
         val movieService = context.getBean(MovieService::class.java)
         val userService = context.getBean(UserService::class.java)
 
-        val movies = movieService.getAllMovies()
-        println("Movies: $movies")
-
-        val users = userService.getAllUsers()
-        println("Users: $users")
     }
-}
+
