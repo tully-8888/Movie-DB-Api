@@ -1,9 +1,9 @@
-package service
+package main.service
 
-import model.User
+import main.model.User
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import repository.UserRepository
+import main.repository.UserRepository
 
 @Service
 class UserService @Autowired constructor(private val userRepository: UserRepository) {

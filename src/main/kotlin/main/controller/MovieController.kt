@@ -1,12 +1,12 @@
-package controller
+package main.controller
 
-import model.Movie
+import main.model.Movie
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import repository.MovieRepository
+import main.repository.MovieRepository
 
 @RestController
 @RequestMapping("/api")

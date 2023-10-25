@@ -1,9 +1,9 @@
-package service
+package main.service
 
-import model.Movie
+import main.model.Movie
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import repository.MovieRepository
+import main.repository.MovieRepository
 
 @Service
 class MovieService @Autowired constructor(private val movieRepository: MovieRepository) {
@@ -20,5 +20,4 @@ class MovieService @Autowired constructor(private val movieRepository: MovieRepo
         return movieRepository.findByTags(tag)
     }
 
-    // Add more methods for other business logic
 }
