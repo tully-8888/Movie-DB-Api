@@ -5,7 +5,6 @@ import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 
-
 /**
  * Entity class for Movie.
  * This class represents a Movie entity with various attributes like title, description, genre, etc.
