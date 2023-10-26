@@ -12,17 +12,17 @@ class MovieController(@Autowired private val movieService: MovieService) {
 
     // Endpoint to expose all movies
     @GetMapping("/")
-    fun getAllMovies(): List<Movie> = movieService.getAllMovies()
+    fun getAllMovies(): MutableList<Movie?> = movieService.getAllMovies()
 
     // Endpoint to expose all movies in a category
     @GetMapping("/category/{category}")
-    fun getMoviesByCategory(@PathVariable category: String): List<Movie> {
+    fun getMoviesByCategory(@PathVariable category: String): List<Movie?>? {
         return movieService.getMoviesByGenre(category)
     }
 
     // Endpoint to expose all movies with a specific tag
     @GetMapping("/tag/{tag}")
-    fun getMoviesByTag(@PathVariable tag: String): List<Movie> {
+    fun getMoviesByTag(@PathVariable tag: String): List<Movie?>? {
         return movieService.getMoviesByTag(tag)
     }
 }
